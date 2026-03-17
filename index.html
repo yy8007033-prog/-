@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lin Yiyi · 作品集</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #fcf8f3;
+            color: #2c2823;
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 头部渐变方形 */
+        .header-gradient-box {
+            width: 100%;
+            max-width: 950px;
+            margin-bottom: 3rem;
+            background: linear-gradient(90deg, #2c4a3e 0%, #ffffff 100%);
+            padding: 2.5rem 3rem;
+            border-radius: 0;
+            border: none;
+            box-shadow: 0 25px 40px -20px rgba(30, 50, 30, 0.4);
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.05));
+            text-align: center;
+        }
+
+        .header-gradient-box .portfolio-main-title {
+            font-size: 5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #f0efe7;
+            line-height: 1;
+            margin-bottom: 0.8rem;
+            text-shadow: 0 2px 4px rgba(0,20,0,0.3);
+        }
+
+        .header-gradient-box .sub-name {
+            font-size: 1.6rem;
+            font-weight: 350;
+            color: #d9cfc0;
+            margin-bottom: 0.3rem;
+            text-transform: capitalize;
+        }
+
+        .header-gradient-box .role-tag {
+            font-size: 1.2rem;
+            font-weight: 320;
+            color: #1e2f28;
+            background: rgba(255,255,255,0.3);
+            padding: 0.3rem 2rem;
+            border-radius: 40px;
+            display: inline-block;
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(70,90,70,0.2);
+        }
+
+        .content-centered {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .sub-headline {
+            font-size: 2rem;
+            font-weight: 430;
+            color: #4a3c32;
+            margin: 1.5rem 0 1.2rem 0;
+            position: relative;
+            letter-spacing: -0.01em;
+        }
+        .sub-headline::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: #b09782;
+            margin: 0.8rem auto 0;
+            opacity: 0.4;
+        }
+
+        .expertise-text {
+            font-size: 1.2rem;
+            font-weight: 340;
+            color: #3e3731;
+            margin: 0 0 3rem 0;
+            line-height: 1.8;
+            max-width: 750px;
+            text-align: center;
+        }
+        .expertise-text p {
+            margin: 0.5rem 0;
+        }
+
+        .projects-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4rem;
+            width: 100%;
+            margin: 2rem 0 3rem;
+        }
+
+        .project-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            width: 100%;
+            max-width: 900px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .image-wrapper {
+            width: 360px;
+            height: 240px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #e0d6cc;
+            flex-shrink: 0;
+            /* 图片底部阴影 */
+            box-shadow: 0 15px 25px -8px rgba(0, 0, 0, 0.25);
+            transition: box-shadow 0.2s ease;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.35s ease;
+        }
+
+        .project-row:hover .project-image {
+            transform: scale(1.06);
+        }
+
+        .project-row:hover .image-wrapper {
+            box-shadow: 0 20px 30px -6px rgba(0, 0, 0, 0.3);
+        }
+
+        .text-wrapper {
+            display: flex;
+            flex-direction: column;
+            max-width: 320px;
+            border-left: 4px solid #8b7a6a;
+            padding-left: 1.2rem;
+        }
+
+        .text-left {
+            align-items: flex-start;
+            text-align: left;
+        }
+        .text-right {
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .project-main-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2d2822;
+            margin-bottom: 0.4rem;
+        }
+
+        .project-description {
+            font-size: 1rem;
+            font-weight: 340;
+            color: #5f5349;
+            line-height: 1.5;
+        }
+
+        a, a:hover, a:visited, a:link, a:active,
+        .project-main-title, .project-description {
+            text-decoration: none !important;
+            border-bottom: none !important;
+        }
+
+        .footer-contact {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            border-top: 1px solid rgba(150, 130, 110, 0.2);
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+
+        .contact-line {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #4f463f;
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+
+        .email-text {
+            font-family: 'Courier New', 'SF Mono', monospace;
+            font-size: 1.3rem;
+            font-weight: 380;
+            color: #5b4e44;
+            cursor: default;
+        }
+
+        @media (max-width: 850px) {
+            .header-gradient-box {
+                padding: 2rem 1.5rem;
+            }
+            .header-gradient-box .portfolio-main-title {
+                font-size: 3.8rem;
+            }
+            .project-row {
+                flex-direction: column;
+                gap: 1.2rem;
+            }
+            .image-wrapper {
+                width: 300px;
+                height: 200px;
+            }
+            .text-wrapper {
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 渐变方形 -->
+        <div class="header-gradient-box">
+            <h1 class="portfolio-main-title">作品集</h1>
+            <div class="sub-name">Linyiyi Personal Portfolio</div>
+            <div class="role-tag">医疗健康/医美内容运营 · 新媒体运营</div>
+        </div>
+
+        <div class="content-centered">
+            <h2 class="sub-headline">懂医学，更懂如何讲好医疗故事</h2>
+
+            <div class="expertise-text">
+                <p>6年医疗健康领域深耕</p>
+                <p>医学文献支撑 · 医生IP孵化 · 科普内容审核</p>
+                <p>用专业内容驱动品牌增长</p>
+            </div>
+
+            <!-- 三个项目链接区 — 所有图片已更换为新的、确保可见的图片 -->
+            <div class="projects-container">
+                <!-- 医疗科普文章：新的写字/文章图片 -->
+                <a href="#" target="_blank" class="project-row">
+                    <div class="image-wrapper">
+                        <img class="project-image" 
+                             src="https://images.pexels.com/photos/261662/pexels-photo-261662.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                             alt="写字文章" 
+                             loading="lazy">
+                    </div>
+                    <div class="text-wrapper text-right">
+                        <span class="project-main-title">医疗科普文章</span>
+                        <span class="project-description">专业严谨 · 用户易懂</span>
+                    </div>
+                </a>
+
+                <!-- 电商商品详情页：新的商品图片 -->
+                <a href="#" target="_blank" class="project-row">
+                    <div class="text-wrapper text-left">
+                        <span class="project-main-title">电商商品详情页</span>
+                        <span class="project-description">卖点提炼 · 转化导向</span>
+                    </div>
+                    <div class="image-wrapper">
+                        <img class="project-image" 
+                             src="https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                             alt="商品展示" 
+                             loading="lazy">
+                    </div>
+                </a>
+
+                <!-- 小红书图文：新的小红书风格图片 -->
+                <a href="#" target="_blank" class="project-row">
+                    <div class="image-wrapper">
+                        <img class="project-image" 
+                             src="https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                             alt="小红书图文设计" 
+                             loading="lazy">
+                    </div>
+                    <div class="text-wrapper text-right">
+                        <span class="project-main-title">小红书图文</span>
+                        <span class="project-description">干货攻略 · 简单有趣</span>
+                    </div>
+                </a>
+            </div>
+
+            <footer class="footer-contact">
+                <div class="contact-row">
+                    <span class="contact-line">please contact me</span>
+                    <span class="email-text">yeealex_011@163.com</span>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
